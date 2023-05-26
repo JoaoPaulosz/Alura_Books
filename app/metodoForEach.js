@@ -1,5 +1,6 @@
 var section = document.getElementById('livros');
 function exibirLivrosNaTela(listaLivros){
+    section.innerHTML = ''
     listaLivros.forEach(livro => {
         section.innerHTML += 
         `
