@@ -1,8 +1,11 @@
 var section = document.getElementById('livros');
+let campoTotalizadoDeLivros = document.getElementById('valor_total_livros_disponiveis')
+
 function exibirLivrosNaTela(listaLivros){
+    campoTotalizadoDeLivros.innerHTML = ''
     section.innerHTML = ''
     listaLivros.forEach(livro => {
-        let disponibilidade = verificaDisponibilidade(livro)
+        let disponibilidade = livro.quantidade > 0? 'livro__imagens' : 'livro__imagens indisponivel'
         section.innerHTML += 
         `
         <div class="livro">
@@ -18,12 +21,4 @@ function exibirLivrosNaTela(listaLivros){
         </div>
         `
     })
-}
-
-function verificaDisponibilidade(livro){
-    if(livro.quantidade > 0){
-        return 'livro__imagens'
-    }else{
-        return 'livro__imagens indisponivel'
-    }
 }
